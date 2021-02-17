@@ -1,0 +1,50 @@
+#pragma once
+
+#define KEY_CODE_0      0x30
+#define KEY_CODE_1      0x31
+#define KEY_CODE_2      0x32
+#define KEY_CODE_3      0x33
+#define KEY_CODE_4      0x34
+#define KEY_CODE_5      0x35
+#define KEY_CODE_6      0x36
+#define KEY_CODE_7      0x37
+#define KEY_CODE_8      0x38
+#define KEY_CODE_9      0x39
+
+#define KEY_CODE_A      0X41
+#define KEY_CODE_B      0X42
+#define KEY_CODE_C      0X43
+#define KEY_CODE_D      0X44
+#define KEY_CODE_E      0X45
+#define KEY_CODE_F      0X46
+#define KEY_CODE_G      0X47
+#define KEY_CODE_H      0X48
+#define KEY_CODE_I      0X49
+#define KEY_CODE_J      0X4A
+#define KEY_CODE_K      0X4B
+#define KEY_CODE_L      0X4C
+#define KEY_CODE_M      0X4D
+#define KEY_CODE_N      0X4E
+#define KEY_CODE_O      0X4F
+#define KEY_CODE_P      0X50
+#define KEY_CODE_Q      0X51
+#define KEY_CODE_R      0X52
+#define KEY_CODE_S      0X53
+#define KEY_CODE_T      0X54
+#define KEY_CODE_U      0X55
+#define KEY_CODE_V      0X56
+#define KEY_CODE_W      0X57
+#define KEY_CODE_X      0X58
+#define KEY_CODE_Y      0X59
+#define KEY_CODE_Z      0X5A
+
+#define KEY_CODE_NUMPAD_0   0x60
+#define KEY_CODE_NUMPAD_1   0x61
+#define KEY_CODE_NUMPAD_2   0x62
+#define KEY_CODE_NUMPAD_3   0x63
+#define KEY_CODE_NUMPAD_4   0x64
+#define KEY_CODE_NUMPAD_5   0x65
+#define KEY_CODE_NUMPAD_6   0x66
+#define KEY_CODE_NUMPAD_7   0x67
+#define KEY_CODE_NUMPAD_8   0x68
+#define KEY_CODE_NUMPAD_9   0x69
