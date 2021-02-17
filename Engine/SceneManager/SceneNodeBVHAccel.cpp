@@ -31,6 +31,25 @@ namespace Panda
 
     struct BVHBuildNode : public TreeNode
     {
+        BVHBuildNode() : bounds(Bounds3Df()), splitAxis(0), firstNodeOffset(0), nodeCount(0)
+        {}
+
+        BVHBuildNode(BVHBuildNode& in)
+            : bounds(in.bounds), splitAxis(in.splitAxis), firstNodeOffset(in.firstNodeOffset), nodeCount(in.nodeCount)
+        {}
+
+		BVHBuildNode(const BVHBuildNode& in)
+			: bounds(in.bounds), splitAxis(in.splitAxis), firstNodeOffset(in.firstNodeOffset), nodeCount(in.nodeCount)
+		{}
+
+		BVHBuildNode(BVHBuildNode* in)
+			: bounds(in->bounds), splitAxis(in->splitAxis), firstNodeOffset(in->firstNodeOffset), nodeCount(in->nodeCount)
+		{}
+
+		BVHBuildNode(const BVHBuildNode* in)
+			: bounds(in->bounds), splitAxis(in->splitAxis), firstNodeOffset(in->firstNodeOffset), nodeCount(in->nodeCount)
+		{}
+
         void InitLeaf(int32_t first, int32_t n, const Bounds3Df& b)
         {
             firstNodeOffset = first;
@@ -94,7 +113,7 @@ namespace Panda
         Bounds3Df bounds;
         int32_t splitAxis;  // The axis splitted according to 
         int32_t firstNodeOffset;    // offset in the array
-        int32_t nodeCount;  // the cound of nodes contained by _buildnode_
+        int32_t nodeCount;  // the count of nodes contained by _buildnode_
     };
 
     // Node cluster
@@ -180,7 +199,7 @@ namespace Panda
     }
 
     SceneNodeBVHAccel::SceneNodeBVHAccel(std::vector<std::shared_ptr<BaseSceneNode>> p, 
-            int32_t maxPrimsInNode = 1, SplitMethod splitMethod = SplitMethod::SAH)
+            int32_t maxPrimsInNode, SplitMethod splitMethod)
             : m_MaxPrimsInNode((std::min)(maxPrimsInNode, 255)), 
             m_SceneNodes(std::move(p)), m_SplitMethod(splitMethod)
     {
@@ -645,9 +664,9 @@ namespace Panda
             // Create interior flattened BVH node
             linearNode->axis = node->splitAxis;
             linearNode->nNodes = 0;
-            FlattenBVHTree(node->m_Children[0].get(), offset);
+            FlattenBVHTree(dynamic_cast<BVHBuildNode*>((node->GetChildren())[0].get()), offset);
             linearNode->secondChildOffset =
-                FlattenBVHTree(node->m_Children[1].get(), offset);
+                FlattenBVHTree(dynamic_cast<BVHBuildNode*>((node->GetChildren())[1].get()), offset);
         }
         return myOffset;
     }

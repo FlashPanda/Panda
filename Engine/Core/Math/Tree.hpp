@@ -21,6 +21,12 @@ namespace Panda
 			{
 				return m_Parent;
 			}
+
+            std::vector<std::shared_ptr<TreeNode>>& GetChildren()
+            {
+                return m_Children;
+            }
+
             virtual void AppendChild(std::shared_ptr<TreeNode>&& sub_node)
             {
                 sub_node->m_Parent = this;

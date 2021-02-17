@@ -13,7 +13,7 @@ namespace Panda
         return true;
     }
 
-    void SortSpectrumSamples(float* lambda, float* vals, int32_t n)
+    bool SortSpectrumSamples(float* lambda, float* vals, int32_t n)
     {
         std::vector<std::pair<float, float>> sortVec;
         sortVec.reserve(n);
@@ -25,6 +25,7 @@ namespace Panda
             lambda[i] = sortVec[i].first;
             vals[i] = sortVec[i].second;
         }
+        return true;
     }
 
     float AverageSpectrumSamples(const float* lambda, const float* vals,

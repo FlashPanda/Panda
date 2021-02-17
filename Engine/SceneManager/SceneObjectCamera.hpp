@@ -198,29 +198,7 @@ namespace Panda
                 : SceneObjectCamera(name, shutterOpen, shutterClose, film, medium)
                 {}
             
-            float GenerateRay(const CameraSample& sample, Ray* ray) const
-            {
-                // Compute environment camera ray direction
-                float theta = PI * sample.pFilm[1] / m_Film->m_FullResolution[1];
-                float phi = 2 * PI * sample.pFilm[0] / m_Film->m_FullResolution[0];
-                Vector3Df dir({std::sinf(theta) * std::cos(phi), std::cosf(theta),
-                               std::sinf(theta) * std::sinf(phi)});
-                *ray = Ray(Point3Df({0.f, 0.f, 0.f}), dir, Infinity, Lerp(sample.time, m_ShutterOpen, m_ShutterClose));
-                ray->pMedium = m_Medium;
-
-                const Scene& scene = g_pSceneManager->GetScene();
-                auto cameraNode = scene.CameraNodes.find(m_Name);
-                if (cameraNode == scene.CameraNodes.end())
-                {
-                    assert(0);
-                    return 0.f;
-                }
-                std::shared_ptr<SceneCameraNode> pCameraNode = cameraNode->second;
-                Vector3Df oError, dError;
-                *ray = TransformRay(*ray, *pCameraNode->m_CameraToWorld, oError, dError);
-
-                return 1.f;
-            }
+            float GenerateRay(const CameraSample& sample, Ray* ray) const;
     };
 }
 

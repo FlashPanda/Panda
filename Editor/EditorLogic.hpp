@@ -1,7 +1,7 @@
 #pragma once
-#include "Interface/IGameLogic.hpp"
-#include "Math/PandaMath.hpp"
-#include "portable.hpp"
+#include "Core/Interface/IGameLogic.hpp"
+#include "Core/Math/PandaMath.hpp"
+#include "Core/portable.hpp"
 
 namespace Panda
 {

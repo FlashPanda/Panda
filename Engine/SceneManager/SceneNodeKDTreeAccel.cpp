@@ -1,6 +1,7 @@
 #include "SceneNodeKDTreeAccel.hpp"
 #include <algorithm>
 #include <cmath>
+#include "SceneManager/SceneManager.hpp"
 
 namespace Panda
 {
@@ -76,8 +77,8 @@ namespace Panda
     };  
 
     SceneNodeKdTreeAccel::SceneNodeKdTreeAccel(std::vector<std::shared_ptr<BaseSceneNode>> p,
-        int32_t isectCost = 80, int32_t traversalCost = 1, 
-        float emptyBonus = 0.5f, int32_t maxNodes = 1, int32_t maxDepth = -1)
+        int32_t isectCost, int32_t traversalCost, 
+        float emptyBonus, int32_t maxNodes, int32_t maxDepth)
         : m_IsectCost(isectCost), m_TraversalCost(traversalCost), m_MaxNodes(maxNodes),
         m_EmptyBonus(emptyBonus), m_SceneNodes(std::move(p))
     {   // Build kd-tree for accelerator

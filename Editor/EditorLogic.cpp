@@ -1,7 +1,7 @@
 #include "EditorLogic.hpp"
-#include "Interface/IApplication.hpp"
-#include "SceneManager.hpp"
-#include "GraphicsManager.hpp"
+#include "Core/Interface/IApplication.hpp"
+#include "SceneManager/SceneManager.hpp"
+#include "RHI/GraphicsManager.hpp"
 
 using namespace Panda;
 using namespace std;

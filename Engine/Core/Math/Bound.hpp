@@ -15,8 +15,8 @@ namespace Panda
 
         Bounds() 
         {
-            T minNum = std::numeric_limits<T>::lowest();
-            T maxNum = std::numeric_limits<T>::max();
+            T minNum = (std::numeric_limits<T>::lowest)();
+            T maxNum = (std::numeric_limits<T>::max)();
             pMin = Vector<T, N>({maxNum, maxNum});
             pMax = Vector<T, N>({minNum, minNum});  // pMin > pMax, which means this is a invalid bound.
         }
@@ -128,6 +128,8 @@ namespace Panda
                     maxValue = d.data[i];
                 }
             }
+            
+            return index;
         }
 
         // Return the center and the radius of a sphere which bounds the bounding box.

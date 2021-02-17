@@ -1,4 +1,4 @@
-#include "GfxConfiguration.hpp"
+#include "Common/GfxConfiguration.hpp"
 #include "EditorLogic.hpp"
 
 namespace Panda 
