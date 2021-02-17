@@ -1,0 +1,6 @@
+
+# vscode
+.vscode
+
+Build/*
+Binaries/*
