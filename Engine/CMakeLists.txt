@@ -75,7 +75,11 @@ IF(${WIN32})
 		${INPUT_MANAGER_SOURCE}
 		${COMMON_SOURCE}
 		${COMMON_WINDOWS})
-		
+	
+	target_link_libraries(Panda 
+		d3d12.lib
+		dxgi.lib
+		d3dcompiler.lib)
 	# find debug libs
 	find_library(CROSSGUID_DEBUG crossguid PATHS ${PANDA_EXTERNAL_DEBUG_LIB} NO_DEFAULT_PATH)
 	find_library(ASSIMP_DEBUG assimp PATHS ${PANDA_EXTERNAL_DEBUG_LIB} NO_DEFAULT_PATH)
